@@ -157,7 +157,7 @@ h1, h2, h3, h4, h5, h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
-  background: #fff;
+  background: #800000;
   transition: all 0.5s;
   z-index: 997;
   padding: 15px 0;
@@ -170,7 +170,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #header.header-scrolled {
   top: 0;
-  background: #fff;
+  background: #800000;
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.3);
 }
 
@@ -188,8 +188,13 @@ h1, h2, h3, h4, h5, h6 {
   color: #413e66;
 }
 
+
 #header .logo img {
-  max-height: 40px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 146px;
+  height: 146px;
 }
 
 @media (max-width: 992px) {
@@ -197,7 +202,13 @@ h1, h2, h3, h4, h5, h6 {
     top: 0;
   }
   #header .logo {
-    font-size: 28px;
+    font-size: 40px;
+  }
+  #header .logo img {
+    position: relative;
+    top: 0px;
+    max-height: 70px;
+    max-width: 70px;
   }
 }
 
@@ -226,7 +237,7 @@ h1, h2, h3, h4, h5, h6 {
 .main-nav a {
   display: block;
   position: relative;
-  color: #413e66;
+  color: #bee5ee;
   padding: 10px 0;
   transition: 0.3s;
   font-size: 14px;
@@ -236,7 +247,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .main-nav a:hover, .main-nav .active > a, .main-nav li:hover > a {
-  color: #1bb1dc;
+  color: #111111;
   text-decoration: none;
 }
 
@@ -444,14 +455,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero .intro-info h2 {
-  color: #413e66;
+  color: #4477FE;
   margin-bottom: 40px;
   font-size: 48px;
   font-weight: 700;
 }
 
 #hero .intro-info h2 span {
-  color: #1bb1dc;
+  color: #FF0000;
 }
 
 @media (max-width: 767px) {

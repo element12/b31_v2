@@ -1,41 +1,38 @@
 <?php
-  /**
-  * Requires the "PHP Email Form" library
-  * The "PHP Email Form" library is available only in the pro version of the template
-  * The library should be uploaded to: vendor/php-email-form/php-email-form.php
-  * For more info and help: https://bootstrapmade.com/php-email-form/
-  */
+$destinatario = "jeisonortiz0016@gmail.com";
+$asunto = "Este mensaje es de prueba";
+$cuerpo = ' 
+<html> 
+<head> 
+   <title>Prueba de correo</title> 
+</head> 
+<body> 
+<h1>Hola amigos!</h1> 
+<p> 
+<b>Bienvenidos a mi correo electrónico de prueba</b>. Estoy encantado de tener tantos lectores. Este cuerpo del mensaje es del artículo de envío de mails por PHP. Habría que cambiarlo para poner tu propio cuerpo. Por cierto, cambia también las cabeceras del mensaje. 
+</p> 
+</body> 
+</html> 
+';
 
-  // Replace contact@example.com with your real receiving email address
-  $receiving_email_address = 'contact@example.com';
+//para el envío en formato HTML
+$headers = "MIME-Version: 1.0\r\n";
+$headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
 
-  if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
-    include( $php_email_form );
-  } else {
-    die( 'Unable to load the "PHP Email Form" Library!');
-  }
+//dirección del remitente
+$headers .= "From: Miguel Angel Alvarez <pepito@desarrolloweb.com>\r\n";
 
-  $contact = new PHP_Email_Form;
-  $contact->ajax = true;
-  
-  $contact->to = $receiving_email_address;
-  $contact->from_name = $_POST['name'];
-  $contact->from_email = $_POST['email'];
-  $contact->subject = $_POST['subject'];
+//dirección de respuesta, si queremos que sea distinta que la del remitente
+$headers .= "Reply-To: mariano@desarrolloweb.com\r\n";
 
-  // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
-  /*
-  $contact->smtp = array(
-    'host' => 'example.com',
-    'username' => 'example',
-    'password' => 'pass',
-    'port' => '587'
-  );
-  */
+//ruta del mensaje desde origen a destino
+$headers .= "Return-path: holahola@desarrolloweb.com\r\n";
 
-  $contact->add_message( $_POST['name'], 'From');
-  $contact->add_message( $_POST['email'], 'Email');
-  $contact->add_message( $_POST['message'], 'Message', 10);
+//direcciones que recibián copia
+$headers .= "Cc: maria@desarrolloweb.com\r\n";
 
-  echo $contact->send();
+//direcciones que recibirán copia oculta
+$headers .= "Bcc: pepe@pepe.com,juan@juan.com\r\n";
+
+mail($destinatario,$asunto,$cuerpo,$headers)
 ?>
