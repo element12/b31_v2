@@ -9,12 +9,10 @@
   // Replace contact@example.com with your real receiving email address
   $receiving_email_address = 'jeisonortiz0016@gmail.com';
 
-
-  $from_name = $_POST['name'];
-  $from_email = $_POST['email'];
-  $subject = $_POST['subject'];
-  $headers = "From:".$from_email;
-
-  $asunto = 'De:' .$from_name;
- mail($receiving_email_address,$asunto,$subject,$headers)
+  $nombre = $_POST["name"];
+  $email = $_POST["email"];
+  $subject = $_POST["subject"];
+  $mensaje = $_POST["message"];
+  $headers = 'FROM:'. $email;
+ mail($receiving_email_address,$subject,$mensaje,$headers)
 ?>
